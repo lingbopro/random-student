@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>随机选人</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+        <link rel="stylesheet" href="./assets/lib/bootstrap-icons/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="./assets/styles/style.css" />
+        <link rel="stylesheet" href="./assets/styles/main.css" />
+        <script src="./assets/scripts/main.js"></script>
+    </head>
+    <body onload="event_load()">
+        <div id="page">
+            <div id="main">
+                <div class="panel" id="leftPanel">
+                    <h1>随机选人</h1>
+                    <ul class="panelx" id="output">
+                        <li>请先随机一个</li>
+                        <li>被选中的人会显示在这里</li>
+                    </ul>
+                    <div class="options">
+                        <input id="choose_amount" type="" placeholder="选人人数" />
+                        <button type="button" onclick="randomStudent()">随机选择！</button>
+                    </div>
+                </div>
+                <div class="panel" id="rightPanel">
+                    <ol class="panelx" id="students">
+                        <!-- 114514 -->
+                    </ol>
+                    <div align="right" class="options">
+                        <button title="全选/取消全选" type="button" onclick="toggleSelectAll()"><i class="bi bi-check2-all"></i></button>
+                        <button title="添加" type="button" onclick="opendialog('add')"><i class="bi bi-plus-lg"></i></button>
+                        <button title="更多" type="button" onclick="opendialog('more')"><i class="bi bi-three-dots"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="dialog">
+                <div id="dialog_title">
+                    <div class="close" onclick="closedialog()"><i class="bi bi-x-lg"></i></div>
+                </div>
+                <div id="dialog_children">
+                    <div class="dialog_child" id="dialog_add" hidden>
+                        <h1>添加数据</h1>
+                        <p>每行一个</p>
+                        <textarea name="add" id="add_students" cols="30" rows="10"></textarea>
+                        <br>
+                        <button type="submit" onclick="event_addButton()">确定</button>
+                    </div>
+                    <div class="dialog_child" id="dialog_edit" hidden>
+                        <h1>更改数据</h1>
+                        <p>更改ID为<span id="edit_id"></span>的名称</p>
+                        <input name="add" id="edit_student" />
+                        <br>
+                        <button type="submit" onclick="event_editSubmit()">确定</button>
+                    </div>
+                    <div class="dialog_child" id="dialog_more" hidden>
+                        <h1>更多</h1>
+                        <h2>数据操作</h2>
+                        <button title="导入" type="button" onclick="opendialog('import')"><i class="bi bi-download"></i>&nbsp;导入</button>
+                        <button title="导出" type="button" onclick="event_export()"><i class="bi bi-upload"></i>&nbsp;导出</button>
+                        <button title="全部删除" type="button" onclick="deleteAll()"><i class="bi bi-trash3"></i>&nbsp;全部删除</button>
+                        <h2>关于</h2>
+                        <p>&nbsp;这是一个简单的随机选人页面，利用原生HTML/CSS/JS制作</p>
+                        <p>&nbsp;此项目以MIT协议开源</p>
+                        <button type="button" onclick="window.open('\/\/github.com/lingbopro/random-student/','_blank')"><i class="bi bi-github"></i>&nbsp;GitHub 开源地址</button>
+                        <button type="submit" onclick="closedialog()">关闭</button>
+                    </div>
+                    <div class="dialog_child" id="dialog_import" hidden>
+                        <h1>导入</h1>
+                        <p>在下面的输入框中输入导入的数据（导入的数据需通过“导出”功能生成）</p>
+                        <textarea name="import" id="import" cols="70" rows="10"></textarea>
+                        <br>
+                        <button type="submit" onclick="event_import()">导入</button>
+                    </div>
+                    <div class="dialog_child" id="dialog_export" hidden>
+                        <h1>导出</h1>
+                        <p>复制下面的输入框中的数据，之后就可以通过“导入”功能导入</p>
+                        <p>每次修改后会自动保存到本地存储(LocalStorage)哦~</p>
+                        <textarea name="export" id="export" cols="70" rows="10" readonly></textarea>
+                        <br>
+                        <button type="submit" onclick="closedialog()">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

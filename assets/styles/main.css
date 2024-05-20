@@ -1,0 +1,145 @@
+:root ,body {
+    background:-webkit-linear-gradient(90deg, #8f2fc1,#a172e0,#bba9f8);
+    background: linear-gradient(90deg, #8f2fc1,#a172e0,#bba9f8);
+    color: white;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+#page {
+    display: block;
+}
+#main, #dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 10px;
+    width: -moz-fit-content;
+    height: -moz-fit-content;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: #202020a0;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+#main {
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+    max-height: 60%;
+}
+#dialog {
+    display: none;
+    max-width: 80%;
+    max-height: 80%;
+}
+#dialog.open {
+    display: block;
+}
+#dialog .close {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    text-align: right;
+}
+#dialog .close:hover {
+    opacity: 0.6;
+}
+#dialog_children>* {
+    margin: 10px;
+}
+
+#main>.panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#leftPanel {
+    /**/
+}
+#leftPanel>#output {
+    text-align: center;
+}
+#leftPanel h1 {
+    margin: 10px;
+    font-size: 28px;
+}
+#leftPanel>#output {
+    overflow: auto;
+}
+#leftPanel>.options {
+    display: flex;
+    flex-direction: column;
+}
+#leftPanel #choose_amount {
+    text-align: center;
+}
+
+#rightPanel {
+    /**/
+}
+#rightPanel>#students {
+    padding: 10px 10px;
+    min-width: 200px;
+    flex: 1;
+    overflow: auto;
+}
+#rightPanel>#students>li {
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#rightPanel>#students>li>.name {
+    flex: 1;
+    padding: 6px;
+}
+#rightPanel>#students>li:hover {
+    background-color: #202020a0;
+}
+#rightPanel>#students>li.active {
+    background-color: #0072cf80;
+}
+#rightPanel>#students>li.active:hover {
+    background-color: #0072cfa0;
+}
+#rightPanel>#students>li>.options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: right;
+}
+#rightPanel>#students>li>.options>* {
+    padding: 4px 6px;
+    margin: 0 2px;
+    border-radius: 10px;
+}
+#rightPanel>#students>li>.options>*:hover {
+    background-color: #101010a0;
+}
+#rightPanel>#students>li.active>.options>*:hover {
+    background-color: #00437aa0;
+}
+#rightPanel>.options {
+    align-items: flex-end;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+#rightPanel>.options>* {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

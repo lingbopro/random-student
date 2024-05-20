@@ -1,0 +1,33 @@
+button, input, textarea {
+    margin: 10px;
+    padding: 10px 10px;
+    background-color: #20202080;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    color: white;
+    outline: 0;
+}
+button:hover, input:hover, textarea:hover {
+    background-color: #202020a0;
+}
+button:active, input:focus, textarea:focus {
+    background-color: #202020e0;
+}
+button {
+    padding: 10px 30px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.panelx {
+    margin: 10px;
+    padding: 20px 40px;
+    background-color: #20202080;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    list-style-type: none;
+}
